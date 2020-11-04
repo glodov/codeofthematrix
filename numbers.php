@@ -1,5 +1,6 @@
 <?php
 // phpcs:ignoreFile
+$matrix = [];
 for ($i = 1; $i < 10; $i++) {
     $arr = [];
     for ($j = 1; $j < 10; $j++) {
@@ -16,5 +17,10 @@ for ($i = 1; $i < 10; $i++) {
                              $sum === 13 ? 4 : $sum
                          )));
     }
-    echo vsprintf("%d %d %d %d %d %d %d %d %d\n", $arr);
+    $matrix[] = $arr;
+}
+// matrix 7x7 for print
+for ($i = 1; $i < count($matrix) - 1; $i++) {
+    $arr = $matrix[$i];
+    echo vsprintf(str_repeat('%d ', 7) . "\n", array_slice($arr, 1, 7));
 }
